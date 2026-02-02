@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff5f7;
+    font-family: "Nunito", sans-serif;
+    overflow: hidden;
+}
+
+/* Floating hearts background */
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hearts::before {
+    content: "💖 💕 ❤️ 💗 💓 💘 💝";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    animation: floatHearts 12s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatHearts {
+    0% { transform: translate(-50%, 110vh); }
+    100% { transform: translate(-50%, -120vh); }
+}
+
+/* Main container */
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 2.4em;
+    color: #d32f2f;
+    margin-bottom: 20px;
+}
+
+.gif_container img {
+    width: 280px;
+    max-width: 90%;
+    border-radius: 12px;
+}
+
+/* Buttons area */
+.buttons {
+    position: relative;
+    margin-top: 25px;
+    height: 150px;
+}
+
+/* YES button */
+.yes-button {
+    font-size: 1.5em;
+    padding: 12px 28px;
+    background-color: #fa0561;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* YES glow */
+.glow {
+    animation: glowPulse 1.8s infinite;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px #fa0561; }
+    50% { box-shadow: 0 0 25px #ff4f8b; }
+    100% { box-shadow: 0 0 5px #fa0561; }
+}
+
+/* NO button */
+.no-button {
+    font-size: 1.5em;
+    padding: 12px 28px;
+    background-color: #d3d3d3;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: absolute;
+    left: 160px;
+    top: 0;
+    transition: left 0.25s ease, top 0.25s ease;
+}
